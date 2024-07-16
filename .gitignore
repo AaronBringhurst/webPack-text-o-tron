@@ -1,0 +1,32 @@
+# Dependency directories
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional: MacOS directory attributes
+.DS_Store
+
+# Optional: Windows directory attributes
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional: dotenv environment variables file
+.env
