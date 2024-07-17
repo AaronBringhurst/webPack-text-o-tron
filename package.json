@@ -2,10 +2,10 @@
   "name": "JATE",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "start:dev": "",
-    "start": "npm run build && cd server && cd ../node server.js",
+    "start": "npm run build && cd server && node server.js",
     "server": "",
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i ",
