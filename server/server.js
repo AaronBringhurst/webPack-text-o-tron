@@ -1,24 +1,12 @@
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
+const express = require("express");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-// Serve static files from the React app build directory
-const staticPath = path.join(__dirname, '../client/dist');
-console.log('Serving static files from:', staticPath);
-app.use(express.static(staticPath));
+app.use(express.static("/..client/dist"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Handle requests to the root
-app.get('*', (req, res) => {
-  const indexPath = path.join(staticPath, 'index.html');
-  console.log('Attempting to serve:', indexPath);
-  if (fs.existsSync(indexPath)) {
-    res.sendFile(indexPath);
-  } else {
-    res.status(404).send('index.html not found');
-  }
-});
+require('./routes/htmlRoutes')(app);
 
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
