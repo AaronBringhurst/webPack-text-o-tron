@@ -4,17 +4,17 @@ const butInstall = document.getElementById('buttonInstall');
 // click handler for beforeinstallprompt
 window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
-    deferredPrompt = event;
+    window.deferredPrompt = event;
     butInstall.style.display = 'block';
 });
 
 // click handler for butInstall
 butInstall.addEventListener('click', async () => {
-    if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
+    if (window.deferredPrompt) {
+        window.deferredPrompt.prompt();
+        const { outcome } = await window.deferredPrompt.userChoice;
         console.log(`User response to the install prompt: ${outcome}`);
-        deferredPrompt = null;
+        window.deferredPrompt = null;
         butInstall.style.display = 'none';
     }
 });
