@@ -8,8 +8,9 @@
     "start": "npm run build && cd server && node server.js",
     "server": "",
     "build": "cd client && npm run build",
-    "install": "cd server && npm i && cd ../client && npm i ",
-    "client": ""
+    "install": "cd server && npm i && cd ../client && npm i --production=false",
+    "client": "",
+    "render-build": "npm install && npm run build"
   },
   "keywords": [],
   "author": "",
